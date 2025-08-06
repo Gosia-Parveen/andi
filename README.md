@@ -11,8 +11,8 @@ This is a web-based banking system for managing bank branches, users, deposits, 
 ## 🔐 Login Credentials
 
 ### Admin
-- **Username:** admin
-- **Password:** password9876
+- **Username:** admin01
+- **Password:** realpassword
 
 
 ## 🧑‍💻 Author
