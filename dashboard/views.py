@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Branch
 from .form import BranchForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 def dashboard(request):                              #dashboard
     return render(request, "page1.html")
@@ -44,7 +46,7 @@ def branch_form(request):                           # Show form and handle POST
     return render(request, 'br_form.html', {'form': form})
 
 
-def branch_edit(request, id):
+def branch_edit(request, id):                             #when you edit the existing branch            
     branch = Branch.objects.get(id=id)
     if request.method == 'POST':
         form = BranchForm(request.POST, instance=branch)
@@ -56,11 +58,10 @@ def branch_edit(request, id):
     return render(request, 'br_form.html', {'form': form})
 
 
-def branch_delete(request, id):
+def branch_delete(request, id):                             #when you delete the existing branch
     branch = Branch.objects.get(id=id)
     branch.delete()
     return redirect('branch_list')
-
 
 
 def social_icon(request):                                 #social_icon
@@ -69,3 +70,16 @@ def social_icon(request):                                 #social_icon
 
 def interface(request):                                 #interface control
     return render(request, "interface.html")
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard') 
+        else:
+            messages.error(request, "Invalid username or password")
+    return render(request, "login.html")

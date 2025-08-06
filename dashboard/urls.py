@@ -16,4 +16,5 @@ urlpatterns = [
     path("branch/delete/<int:id>", views.branch_delete, name='branch_delete'),
     path('social_icon', views.social_icon, name='social_icon'),
     path('interface', views.interface, name='interface'),
+    path('login/', views.login_view, name='login'),
 ]
