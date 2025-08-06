@@ -1,0 +1,16 @@
+{% extends "page1.html" %}
+
+{% block title %}branch form - ANDi Banking{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 70px;">
+  <h3>Add New Branch</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+</div>
+
+{% endblock content%}

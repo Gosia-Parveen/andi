@@ -1,0 +1,50 @@
+{% extends "page1.html" %}
+{% block title %}All Branch - ANDi Banking{% endblock %}
+{% block content %}
+
+<div class="container" style="padding-top: 10px;">
+
+  <!-- Header -->
+  <div class="card p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex align-items-center">
+      <i class="bi bi-display me-2"></i>
+      <h3 class="mb-0">All Branch</h3>
+    </div>
+    <!--<a class="btn btn-primary" href="/br_form">+ Add New Data</a>-->
+    <a class="btn btn-primary" href="{% url 'branch_form' %}">+ Add New Data</a>
+
+  </div>
+</div>
+
+
+  <!-- Table -->
+  <table class="table table-hover" id="adminTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for branch in branches %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ branch.name }}</td>
+        <td>{{ branch.status }}</td>
+        <td>
+          <!-- Placeholder buttons -->
+          <a class="btn btn-sm btn-warning" href="{% url 'branch_edit' branch.id %}">Edit</a>
+          <a class="btn btn-sm btn-danger" href="{% url 'branch_delete' branch.id %}">Delete</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="4">No branches found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

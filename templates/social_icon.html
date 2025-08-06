@@ -1,0 +1,65 @@
+{% extends "page1.html" %}
+
+{% block title %}other bank - ANDi Banking{% endblock %}
+
+{% block content %}
+    <script>
+      function changeImage(inputId, imgId) {
+        const fileInput = document.getElementById(inputId);
+        const img = document.getElementById(imgId);
+        const file = fileInput.files[0];
+  
+        if (file && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            img.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert("Please select a valid image file.");
+        }
+      }
+    </script>
+
+<main class="container content-wrapper">
+    <div class="container" style="padding-top: 10px;">
+
+    <!-- Header -->
+    <div class="card p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-display me-2"></i>
+        <h3 class="mb-0">Social Icon</h3>
+      </div></div>
+    </div>
+      <div class="card p-4">
+        <h5 class="mb-3">Logo & Favicon Setting</h5>
+        <div class="d-flex justify-content-between align-items-start">
+          
+          <!-- Left Image -->
+          <div class="image-box">
+            <img id="img1" src="https://via.placeholder.com/200" width="200" height="200"
+                 onclick="document.getElementById('input1').click()" alt="Image 1">
+            <input id="input1" type="file" accept="image/*" style="display: none;"
+                   onchange="changeImage('input1', 'img1')">
+            <hr>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+          </div>
+  
+          <!-- Optional Center Spacer -->
+          <div style="flex-grow: 1;"></div>
+  
+          <!-- Right Image -->
+          <div class="image-box">
+            <img id="img2" src="https://via.placeholder.com/200" width="200" height="200"
+                 onclick="document.getElementById('input2').click()" alt="Image 2">
+            <input id="input2" type="file" accept="image/*" style="display: none;"
+                   onchange="changeImage('input2', 'img2')">
+            <hr>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+          </div>
+  
+        </div>
+      </div>
+    </main>
+{% endblock content %}
