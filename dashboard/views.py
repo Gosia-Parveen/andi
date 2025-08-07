@@ -82,4 +82,4 @@ def login_view(request):
             return redirect('dashboard') 
         else:
             messages.error(request, "Invalid username or password")
-    return render(request, "login.html")
+    return render(request, "index.html")

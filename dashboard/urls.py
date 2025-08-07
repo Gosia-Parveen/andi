@@ -3,7 +3,7 @@ from django.urls import path
 from dashboard import views
 
 urlpatterns = [
-    path("", views.dashboard, name = 'dashboard'),
+    path("dashboard", views.dashboard, name = 'dashboard'),
     #path("branch", views.branch, name = 'branch'),
     path("Other_bank", views.Other_bank, name = 'Other_bank'),
     path("deposit", views.deposit, name = 'deposit'),
@@ -16,5 +16,5 @@ urlpatterns = [
     path("branch/delete/<int:id>", views.branch_delete, name='branch_delete'),
     path('social_icon', views.social_icon, name='social_icon'),
     path('interface', views.interface, name='interface'),
-    path('login/', views.login_view, name='login'),
+    path('', views.login_view, name='login'),
 ]
