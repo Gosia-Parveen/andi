@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*a8w0u0891u3tw0$d8$d%6x#b9lmxy*^fm8#12uhol4bkd!i@a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://gosia-parveen.github.io/andi/']
+ALLOWED_HOSTS = ['127.0.0.1', 'gosia-parveen.github.io']
 
 
 # Application definition
