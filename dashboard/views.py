@@ -72,7 +72,7 @@ def interface(request):                                 #interface control
     return render(request, "interface.html")
 
 
-def login_view(request):
+def login_view(request):                                 #login page
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]

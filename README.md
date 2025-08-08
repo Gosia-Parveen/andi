@@ -10,10 +10,13 @@ This is a web-based banking system for managing bank branches, users, deposits, 
 
 ## 🔐 Login Credentials
 
-### Admin
+### User
 - **Username:** admin01
 - **Password:** realpassword
 
+### Admin
+- **Username:** admin
+- **Password:** password9876
 
 ## 🧑‍💻 Author
 Gosia Sandal Parveen
